@@ -2,7 +2,7 @@ function Products() {
 
   return (
     <>
-      <p>Userpage</p>
+      <p>Pleins de produits</p>
     </>
   )
 }

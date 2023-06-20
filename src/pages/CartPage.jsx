@@ -2,7 +2,7 @@ function Cart() {
 
   return (
     <>
-      <p>Userpage</p>
+      <p>Cart</p>
     </>
   )
 }
