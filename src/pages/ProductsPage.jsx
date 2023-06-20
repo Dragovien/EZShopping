@@ -1,8 +1,20 @@
+import ProductCard from "../components/PrdoductCard"
+import { useSelector } from "react-redux"
+
 function Products() {
+  // const products = useSelector((state) => state.shop.productsList)
+  const products = useSelector((state) => state.shop.productsList)
+  console.log(products)
 
   return (
     <>
-      <p>Pleins de produits</p>
+        {products.map((product) =>
+          <ProductCard
+            key={product.id}
+            title={product.title}
+            description={product.description}
+            imageSrc={product.image} />
+        )}
     </>
   )
 }
