@@ -31,7 +31,7 @@ function Nav() {
             Cart
           </NavLink>
         </button>
-        <button>Light Mode</button>
+        <button onClick={() => {document.body.classList.toggle('dark-mode')}}>Light Mode</button>
       </div>
     </nav>
   )
