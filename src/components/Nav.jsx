@@ -21,17 +21,21 @@ function Nav() {
         <h2>EZ Shopping</h2>
       </NavLink>
       <div style={navLinkWrapper}>
-        <button>
-          <NavLink to={'/user'} end>
+
+        <NavLink to={'/user'} end>
+          <button>
             User
-          </NavLink>
-        </button>
-        <button>
-          <NavLink to={'/cart'} end >
+          </button>
+        </NavLink>
+
+
+        <NavLink to={'/cart'} end >
+          <button>
             Cart
-          </NavLink>
-        </button>
-        <button onClick={() => {document.body.classList.toggle('dark-mode')}}>Light Mode</button>
+          </button>
+        </NavLink>
+
+        <button onClick={() => { document.body.classList.toggle('dark-mode') }}>Light Mode</button>
       </div>
     </nav>
   )
