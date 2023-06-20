@@ -13,10 +13,24 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 //     });
 //   };
 
+const importProductList = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response = await fetch('https://fakestoreapi.com/products')
+            let productList = await response.json()
+            console.log('called API')
+            resolve(productList);
+        } catch (e) {
+            reject(error);
+        }
+    })
+}
+
 export const shopSlice = createSlice({
     name: 'shop',
     initialState: {
-        value: 0,
+        productsList: await importProductList(),
+        userCart: []
     },
     reducers: {
         randomIncrement: {
