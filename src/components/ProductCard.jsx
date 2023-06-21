@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { addProductToCart } from '../stores/slices/shopSlice'
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(1);
+  const isDark = useSelector((state) => state.user.darkMode)
 
   const quantityHandler = (e) => {
     setQuantity(e.target.value);

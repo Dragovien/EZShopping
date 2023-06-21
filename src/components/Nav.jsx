@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { toggleDarkMode } from '../stores/slices/userSlice'
+
 
 function Nav() {
 
@@ -9,6 +11,7 @@ function Nav() {
   // const [savedLastName, setSavedLastName] = useState(localStorage.getItem("lastName"))
   const isDark = useSelector((state) => state.user.darkMode)
   const currentUser = useSelector((state) => state.user.currentUser)
+  const dispatch = useDispatch()
 
   // useEffect(() => {
   //   const storageFirstName = localStorage.getItem("firstName");
@@ -49,11 +52,6 @@ function Nav() {
     rowGap: '1rem',
   }
 
-
-  const darkModeToggle = () => {
-    document.body.classList.toggle('dark-mode'); setIsDark(!isDark)
-  }
-
   return (
     <nav style={navStyle}>
       <NavLink to={'/'} end>
@@ -64,7 +62,7 @@ function Nav() {
         <NavLink to={'/user'} end>
           <button style={{ ...darkModeText, ...navButtons }}>
             <span className="material-icons">face</span>
-            <p>{currentUser.firstName ? currentUser.firstName + ' ' +  currentUser.lastName : 'User'}</p>
+            <p>{currentUser.firstName ? currentUser.firstName + ' ' + currentUser.lastName : 'User'}</p>
           </button>
         </NavLink>
 
@@ -78,14 +76,15 @@ function Nav() {
           </button>
         </NavLink>
 
-        <button onClick={darkMode} style={{ ...darkModeText, ...navButtons }}>
+        <button onClick={() => dispatch(toggleDarkMode())
+        } style={{ ...darkModeText, ...navButtons }}>
           <span className="material-icons">
-          {isDark ? "light_mode" : "dark_mode" }
+            {isDark ? "light_mode" : "dark_mode"}
           </span>
           <p>
-            {isDark ?  "Light mode" : "Dark mode"}
+            {isDark ? "Light mode" : "Dark mode"}
           </p>
-          </button>
+        </button>
       </div>
     </nav>
   )

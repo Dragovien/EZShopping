@@ -8,7 +8,7 @@ export const userSlice = createSlice({
             lastName: localStorage.getItem("lastName") ? JSON.parse(localStorage.getItem("lastName")) : '',
             email: localStorage.getItem("email") ? JSON.parse(localStorage.getItem("email")) : ''
         },
-        darkMode : false
+        darkMode: false
     },
     reducers: {
         updateUser: {
@@ -19,6 +19,12 @@ export const userSlice = createSlice({
                 return {
                     payload: updatedUser
                 }
+            }
+        },
+        toggleDarkMode: {
+            reducer: (state) => {
+                document.body.classList.toggle('dark-mode')
+                state.darkMode = !state.darkMode
             }
         }
     },
@@ -33,5 +39,5 @@ export const userSlice = createSlice({
     //   },
 })
 
-export const { updateUser } = userSlice.actions
+export const { updateUser, toggleDarkMode } = userSlice.actions
 export default userSlice.reducer
