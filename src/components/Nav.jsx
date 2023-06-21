@@ -4,9 +4,10 @@ import { useSelector } from "react-redux"
 
 function Nav() {
 
-  const [isDark, setIsDark] = useState(false);
+  // const [isDark, setIsDark] = useState(false);
   // const [savedFirstName, setSavedFirstName] = useState(localStorage.getItem("firstName"))
   // const [savedLastName, setSavedLastName] = useState(localStorage.getItem("lastName"))
+  const isDark = useSelector((state) => state.user.darkMode)
   const currentUser = useSelector((state) => state.user.currentUser)
 
   // useEffect(() => {
@@ -49,7 +50,7 @@ function Nav() {
   }
 
 
-  const darkMode = () => {
+  const darkModeToggle = () => {
     document.body.classList.toggle('dark-mode'); setIsDark(!isDark)
   }
 

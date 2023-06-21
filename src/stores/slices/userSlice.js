@@ -7,7 +7,8 @@ export const userSlice = createSlice({
             firstName: localStorage.getItem("firstName") ? JSON.parse(localStorage.getItem("firstName")) : '',
             lastName: localStorage.getItem("lastName") ? JSON.parse(localStorage.getItem("lastName")) : '',
             email: localStorage.getItem("email") ? JSON.parse(localStorage.getItem("email")) : ''
-        }
+        },
+        darkMode : false
     },
     reducers: {
         updateUser: {
