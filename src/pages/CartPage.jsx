@@ -7,23 +7,21 @@ import Cart from '../components/Cart'
 function CartPage() {
 
   const cartItems = useSelector((state) => state.shop.userCart)
-
   const cartItemsQuantity = useSelector((state) => state.shop.userCart).length
-
   const [stackedCartItems, setStackedCartItems] = useState([])
 
   useEffect(() => {
     return () => {
+      let stackedItems = []
       cartItems.map((item) => {
-
-        if (!(stackedCartItems.some((cartItem) => cartItem.id === item.id))) {
+        if (!stackedItems.some((stackedItem) => stackedItem.id === item.id)) {
           item = { ...item, quantity: 1 }
-          setStackedCartItems([...stackedCartItems, item]);
+          stackedItems.push(item)
         } else {
-          console.log(stackedCartItems.find(duplicate => item.id === duplicate.id))
-          stackedCartItems.find(duplicate => item.id === duplicate.id).quantity++
+          stackedItems.find(duplicate => item.id === duplicate.id).quantity++
         }
       })
+      setStackedCartItems([...stackedItems]);
     }
   }, [cartItems])
 
@@ -48,9 +46,9 @@ function CartPage() {
       <button className="orangeButton" onClick={() => { dispatch(clearCart()) }}>Clear basket</button>
 
       <div className="productsWrapper">
-        {stackedCartItems.map((item) =>
+        {stackedCartItems.map((item, index) =>
           <Cart
-            key={item.id}
+            key={index}
             product={item}
             title={item.title}
             category={item.category}
