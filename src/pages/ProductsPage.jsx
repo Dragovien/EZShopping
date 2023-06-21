@@ -7,15 +7,17 @@ function Products() {
   console.log(products)
 
   return (
-    <>
+    <div className="productsWrapper">
         {products.map((product) =>
           <ProductCard
             key={product.id}
             title={product.title}
+            category={product.category}
             description={product.description}
+            price={product.price}
             imageSrc={product.image} />
         )}
-    </>
+    </div>
   )
 }
 
