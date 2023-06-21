@@ -7,6 +7,11 @@ const ProductCard = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const isDark = useSelector((state) => state.user.darkMode)
 
+  const productCardStyle = {
+    backgroundColor: isDark ? '#343434' : 'white',
+    color: isDark ? 'white' : 'black',
+  }
+
   const quantityHandler = (e) => {
     setQuantity(e.target.value);
   }
@@ -20,7 +25,7 @@ const ProductCard = ({ product }) => {
   }
 
   return (
-    <div className="productCard">
+    <div className="productCard" style={productCardStyle}>
       <div className='cardContent'>
         <img src={product.image} alt={product.title} />
         <div className="cardTextWrapper">

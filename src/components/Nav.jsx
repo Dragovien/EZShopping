@@ -8,26 +8,9 @@ function Nav() {
 
   const cartItems = useSelector((state) => state.shop.userCart).length
 
-  // const [isDark, setIsDark] = useState(false);
-  // const [savedFirstName, setSavedFirstName] = useState(localStorage.getItem("firstName"))
-  // const [savedLastName, setSavedLastName] = useState(localStorage.getItem("lastName"))
   const isDark = useSelector((state) => state.user.darkMode)
   const currentUser = useSelector((state) => state.user.currentUser)
   const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   const storageFirstName = localStorage.getItem("firstName");
-  //   if (storageFirstName) {
-  //     setSavedFirstName(storageFirstName.slice(1, -1));
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   const storageLastName = localStorage.getItem("lastName");
-  //   if (storageLastName) {
-  //     setSavedLastName(storageLastName.slice(1, -1));
-  //   }
-  // }, []);
 
   const navStyle = {
     display: 'flex',
