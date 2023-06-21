@@ -45,9 +45,11 @@ export const shopSlice = createSlice({
             }
         },
 
-        // clearCart: {
-        //     reducer: (state, action) => 
-        // }
+        clearCart: {
+            reducer: (state, action) => {
+                state.userCart = []
+            }
+        }
     },
     // extraReducers: (builder) => {
     //     builder.addCase(asyncIncrement.fulfilled, (state, action) => {
@@ -68,5 +70,5 @@ export const shopSlice = createSlice({
 //     }
 // )
 
-export const { addProductToCart } = shopSlice.actions
+export const { addProductToCart, clearCart } = shopSlice.actions
 export default shopSlice.reducer
