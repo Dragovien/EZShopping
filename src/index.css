@@ -115,6 +115,7 @@ button:focus-visible {
   object-fit: scale-down;
   max-width: 35%;
   max-height: 100%;
+  margin-right: 10px;
 }
 
 .productCard h2 {
