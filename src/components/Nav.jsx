@@ -1,9 +1,25 @@
 import { NavLink } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Nav() {
 
   const [isDark, setIsDark] = useState(false);
+  const [savedFirstName, setSavedFirstName] = useState('')
+  const [savedLastName, setSavedLastName] = useState('')
+
+  useEffect(() => {
+    const storageFirstName = localStorage.getItem("firstName");
+    if (storageFirstName) {
+      setSavedFirstName(storageFirstName.slice(1, -1));
+    }
+  }, []);
+
+  useEffect(() => {
+    const storageLastName = localStorage.getItem("lastName");
+    if (storageLastName) {
+      setSavedLastName(storageLastName.slice(1, -1));
+    }
+  }, []);
 
   const navStyle = {
     display: 'flex',
@@ -44,15 +60,15 @@ function Nav() {
 
         <NavLink to={'/user'} end>
           <button style={{ ...darkModeText, ...navButtons }}>
-            <span class="material-icons">face</span>
-            <p>User</p>
+            <span className="material-icons">face</span>
+            <p>{savedFirstName ? savedFirstName + ' ' +  savedLastName : 'User'}</p>
           </button>
         </NavLink>
 
 
         <NavLink to={'/cart'} end >
           <button style={{ ...darkModeText, ...navButtons }}>
-            <span class="material-icons">
+            <span className="material-icons">
               shopping_cart
             </span>
             <p>Cart</p>
@@ -60,11 +76,11 @@ function Nav() {
         </NavLink>
 
         <button onClick={darkMode} style={{ ...darkModeText, ...navButtons }}>
-          <span class="material-icons">
-          {isDark ? "dark_mode" : "light_mode"}
+          <span className="material-icons">
+          {isDark ? "light_mode" : "dark_mode" }
           </span>
           <p>
-            {isDark ? "Dark mode" : "Light mode"}
+            {isDark ?  "Light mode" : "Dark mode"}
           </p>
           </button>
       </div>
