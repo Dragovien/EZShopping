@@ -37,6 +37,11 @@ body {
   min-height: 100vh;
 }
 
+body.dark-mode {
+  background-color: #858585;
+  color: white;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
