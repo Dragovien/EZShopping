@@ -33,10 +33,15 @@ export const shopSlice = createSlice({
         userCart: []
     },
     reducers: {
-        randomIncrement: {
-            // reducer: (state) => {
-            //     state.value += Math.floor(Math.random() * 10);
-            // },
+        addProductToCart: {
+            reducer: (state, action) => {
+                state.userCart = [...state.userCart, ...action.payload]
+            },
+            prepare: (products) => {
+                return {
+                    payload : products
+                }
+            }
         }
     },
     // extraReducers: (builder) => {
@@ -58,5 +63,5 @@ export const shopSlice = createSlice({
 //     }
 // )
 
-export const { randomIncrement } = shopSlice.actions
+export const { addProductToCart } = shopSlice.actions
 export default shopSlice.reducer
