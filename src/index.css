@@ -148,6 +148,15 @@ button:focus-visible {
   background-color: orange;
   cursor: pointer;
   padding: 3px 15px;
+  margin-left: 1rem
+}
+
+.orangeButton:hover {
+  background-color: rgb(248, 190, 83);
+}
+
+.formButton {
+  width: 2rem;
 }
 
 .cardFooter {

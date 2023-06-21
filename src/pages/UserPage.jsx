@@ -76,7 +76,7 @@ function User() {
           <input type="text" id="email" value={email} onChange={handleEmailChange} />
         </div>
 
-        <button style={formButton} role={'submit'}>Save</button>
+        <button className="orangeButton formButton" role={'submit'}>Save</button>
       </form>
     </>
   )
