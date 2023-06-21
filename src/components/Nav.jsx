@@ -1,25 +1,27 @@
 import { NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { useSelector } from "react-redux"
 
 function Nav() {
 
   const [isDark, setIsDark] = useState(false);
-  const [savedFirstName, setSavedFirstName] = useState('')
-  const [savedLastName, setSavedLastName] = useState('')
+  // const [savedFirstName, setSavedFirstName] = useState(localStorage.getItem("firstName"))
+  // const [savedLastName, setSavedLastName] = useState(localStorage.getItem("lastName"))
+  const currentUser = useSelector((state) => state.user.currentUser)
 
-  useEffect(() => {
-    const storageFirstName = localStorage.getItem("firstName");
-    if (storageFirstName) {
-      setSavedFirstName(storageFirstName.slice(1, -1));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storageFirstName = localStorage.getItem("firstName");
+  //   if (storageFirstName) {
+  //     setSavedFirstName(storageFirstName.slice(1, -1));
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    const storageLastName = localStorage.getItem("lastName");
-    if (storageLastName) {
-      setSavedLastName(storageLastName.slice(1, -1));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storageLastName = localStorage.getItem("lastName");
+  //   if (storageLastName) {
+  //     setSavedLastName(storageLastName.slice(1, -1));
+  //   }
+  // }, []);
 
   const navStyle = {
     display: 'flex',
@@ -61,7 +63,7 @@ function Nav() {
         <NavLink to={'/user'} end>
           <button style={{ ...darkModeText, ...navButtons }}>
             <span className="material-icons">face</span>
-            <p>{savedFirstName ? savedFirstName + ' ' +  savedLastName : 'User'}</p>
+            <p>{currentUser.firstName ? currentUser.firstName + ' ' +  currentUser.lastName : 'User'}</p>
           </button>
         </NavLink>
 
