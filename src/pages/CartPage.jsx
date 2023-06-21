@@ -10,10 +10,17 @@ function CartPage() {
   const cartItemsQuantity = useSelector((state) => state.shop.userCart).length
   const [stackedCartItems, setStackedCartItems] = useState([])
 
+  const clearCartHandler = () => {
+    setStackedCartItems([])
+    dispatch(clearCart())
+  }
+
   useEffect(() => {
     return () => {
+      console.log('BEOFRE', cartItems)
       let stackedItems = []
       cartItems.map((item) => {
+        console.log(item)
         if (!stackedItems.some((stackedItem) => stackedItem.id === item.id)) {
           item = { ...item, quantity: 1 }
           stackedItems.push(item)
@@ -23,7 +30,7 @@ function CartPage() {
       })
       setStackedCartItems([...stackedItems]);
     }
-  }, [cartItems])
+  }, [])
 
 
   const dispatch = useDispatch()
@@ -43,7 +50,7 @@ function CartPage() {
         cartItemsQuantity > 0 && <p>There {cartItemsQuantity > 1 ? 'are' : 'is'} {cartItemsQuantity} {cartItemsQuantity > 1 ? 'items' : 'item'} in your basket</p>
       }
 
-      <button className="orangeButton" onClick={() => { dispatch(clearCart()) }}>Clear basket</button>
+      <button className="orangeButton" onClick={() => clearCartHandler()}>Clear basket</button>
 
       <div className="productsWrapper">
         {stackedCartItems.map((item, index) =>

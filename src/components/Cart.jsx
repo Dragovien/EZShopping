@@ -11,7 +11,7 @@ const cartProductCard = ({ product }) => {
     backgroundColor: isDark ? '#343434' : 'white',
     color: isDark ? 'white' : 'black',
   }
-  console.log(product)
+
   return (
     <div className="productCard" style={productCardStyle}>
       <div className='cardContent'>
