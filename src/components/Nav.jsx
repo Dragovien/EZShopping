@@ -6,6 +6,8 @@ import { toggleDarkMode } from '../stores/slices/userSlice'
 
 function Nav() {
 
+  const cartItems = useSelector((state) => state.shop.userCart).length
+
   // const [isDark, setIsDark] = useState(false);
   // const [savedFirstName, setSavedFirstName] = useState(localStorage.getItem("firstName"))
   // const [savedLastName, setSavedLastName] = useState(localStorage.getItem("lastName"))
@@ -72,7 +74,12 @@ function Nav() {
             <span className="material-icons">
               shopping_cart
             </span>
-            <p>Cart</p>
+            {
+              cartItems === 0 && <p>Cart </p>
+            }
+            {
+              cartItems > 0 && <p> <b>{cartItems}</b> {cartItems > 1 ? 'items' : 'item'} </p>
+            }
           </button>
         </NavLink>
 
