@@ -35,11 +35,8 @@ export const shopSlice = createSlice({
     reducers: {
         addProductToCart: {
             reducer: (state, action) => {
-                console.log(action.payload)
-
-
                 state.userCart = [...state.userCart, ...action.payload]
-                
+                console.log(state.userCart)
             },
             prepare: (products) => {
                 return {

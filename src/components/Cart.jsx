@@ -4,7 +4,7 @@ import { addProductToCart } from '../stores/slices/shopSlice'
 
 const cartProductCard = ({ product }) => {
   const dispatch = useDispatch()
-  const [quantity, setQuantity] = useState(1);
+
   const isDark = useSelector((state) => state.user.darkMode)
 
   const productCardStyle = {

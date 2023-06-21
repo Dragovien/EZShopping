@@ -15,16 +15,15 @@ function CartPage() {
   useEffect(() => {
     return () => {
       cartItems.map((item) => {
-        item = { ...item, quantity: 1 }
 
         if (!(stackedCartItems.some((cartItem) => cartItem.id === item.id))) {
+          item = { ...item, quantity: 1 }
           setStackedCartItems([...stackedCartItems, item]);
         } else {
           console.log(stackedCartItems.find(duplicate => item.id === duplicate.id))
           stackedCartItems.find(duplicate => item.id === duplicate.id).quantity++
         }
       })
-      console.log(stackedCartItems)
     }
   }, [cartItems])
 
