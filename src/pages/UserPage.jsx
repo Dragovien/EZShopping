@@ -19,14 +19,6 @@ function User() {
     columnGap: '0.5rem',
   }
 
-  const formButton = {
-    width: "5rem",
-    padding: '0.25rem 0',
-    backgroundColor: 'orange',
-    borderRadius: '5px',
-    marginLeft: '1rem',
-  } 
-
   useEffect(() => {
     const savedFirstName = localStorage.getItem("firstName");
     if (savedFirstName) {
@@ -75,7 +67,7 @@ function User() {
           <input type="text" id="email" value={email} onChange={handleEmailChange}/>
         </div>
 
-        <button style={formButton} role={'submit'}>Save</button>
+        <button className="orangeButton formButton" role={'submit'}>Save</button>
       </form>
     </>
   )

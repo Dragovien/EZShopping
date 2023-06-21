@@ -36,13 +36,18 @@ export const shopSlice = createSlice({
         addProductToCart: {
             reducer: (state, action) => {
                 state.userCart = [...state.userCart, ...action.payload]
+
             },
             prepare: (products) => {
                 return {
                     payload : products
                 }
             }
-        }
+        },
+
+        // clearCart: {
+        //     reducer: (state, action) => 
+        // }
     },
     // extraReducers: (builder) => {
     //     builder.addCase(asyncIncrement.fulfilled, (state, action) => {
