@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 export const userSlice = createSlice({
     name: 'user',
@@ -28,15 +28,6 @@ export const userSlice = createSlice({
             }
         }
     },
-    // extraReducers: (builder) => {
-    //     builder.addCase(asyncIncrement.fulfilled, (state, action) => {
-    //         state.value = action.payload
-    //         state.loading = false
-    //     }),
-    //     builder.addCase(asyncIncrement.pending, (state, action) => {
-    //         state.loading = true
-    //     })
-    //   },
 })
 
 export const { updateUser, toggleDarkMode } = userSlice.actions
