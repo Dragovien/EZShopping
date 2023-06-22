@@ -38,8 +38,14 @@ function CartPage() {
   return (
     <>
       <div className='cartPage'>
-        <h2>Hi {savedName ? savedName : 'User'} !</h2>
-        {cartItemsQuantity === 0 && <p>You don't have any item in your cart</p>}
+        <h2>
+          Hi {savedName ? savedName : 'User'} !
+        </h2>
+
+        {cartItemsQuantity === 0 
+        && <p>
+          You don't have any item in your cart
+          </p>}
         {cartItemsQuantity > 0 && (
           <p>
             There {cartItemsQuantity > 1 ? 'are' : 'is'} {cartItemsQuantity}{' '}
@@ -50,6 +56,8 @@ function CartPage() {
         <button className="orangeButton" onClick={clearCartHandler}>
           Clear basket
         </button>
+
+        <hr/>
 
         <div className="productsWrapper">
           {stackedCartItems.map((item, index) => (
