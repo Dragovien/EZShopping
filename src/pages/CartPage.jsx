@@ -14,7 +14,7 @@ function CartPage() {
   };
 
   useEffect(() => {
-    let stackedItems = [];
+    let stackedItems = [...cartItems];
     cartItems.forEach((item) => {
       if (!stackedItems.some((stackedItem) => stackedItem.id === item.id)) {
         item = { ...item, quantity: 1 };

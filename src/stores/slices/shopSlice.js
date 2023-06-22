@@ -17,25 +17,26 @@ export const shopSlice = createSlice({
     name: 'shop',
     initialState: {
         productsList: await importProductList(),
-        userCart: [],
+        userCart: localStorage.getItem('userCart') ? JSON.parse(localStorage.getItem('userCart')) : [],
 
     },
     reducers: {
         addProductToCart: {
             reducer: (state, action) => {
+                // let productsToAdd = action.payload.map((product) => { return { ...product, quantity: null } })
                 state.userCart = [...state.userCart, ...action.payload]
-                console.log(state.userCart)
+                localStorage.setItem('userCart', JSON.stringify([...state.userCart, ...action.payload]))
             },
             prepare: (products) => {
                 return {
-                    payload : products
+                    payload: products
                 }
             }
         },
-
         updateCart: {
             reducer: (state, action) => {
                 state.userCart = [...action.payload]
+                localStorage.setItem('userCart', JSON.stringify([...action.payload]))
             },
             prepare: (filteredCart) => {
                 return {
