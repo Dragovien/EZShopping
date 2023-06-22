@@ -95,7 +95,7 @@ function CartPage() {
           &&
           <div>
             <p className='price'>Total: ${
-              totalPrice
+              totalPrice.toFixed(2)
             }</p>
             <button onClick={validateCartHandler} className='orangeButton validateButton'>Validate your cart</button>
           </div>
