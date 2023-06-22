@@ -29,12 +29,12 @@ const cartProductCard = ({ product }) => {
           <div className="categoryChip">{product.category}</div>
           <div className="cutText">{product.description}</div>
           <h3>${product.price}</h3>
-        </div>
-        <div className="cardFooter">
+          <div className="cardFooter">
           <div>
             <b>Quantity : {product.quantity}</b>
           </div>
           <button className="orangeButton" onClick={() => removeItemFromCartHandler(product)}>Remove</button>
+        </div>
         </div>
       </div>
     </div>
