@@ -7,11 +7,20 @@ function CartPage() {
   const cartItems = useSelector((state) => state.shop.userCart);
   const cartItemsQuantity = cartItems.length;
   const [stackedCartItems, setStackedCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0)
+
 
   const clearCartHandler = () => {
     setStackedCartItems([]);
     dispatch(clearCart());
   };
+
+  const validateCartHandler = () => {
+    setStackedCartItems([]);
+    dispatch(clearCart());
+    window.alert('Shopping cart validated, you are going to be redirected to the payment page')
+  };
+
   useEffect(() => {
     let stackedItems = [];
     cartItems.forEach((item) => {
@@ -24,8 +33,15 @@ function CartPage() {
       }
     });
     setStackedCartItems(stackedItems);
+
   }, [cartItems]);
 
+  useEffect(() => {
+    const sum = stackedCartItems.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+    setTotalPrice(sum)
+  }, [stackedCartItems]);
 
 
   const dispatch = useDispatch();
@@ -42,9 +58,9 @@ function CartPage() {
           Hi {savedName ? savedName : 'User'} !
         </h2>
 
-        {cartItemsQuantity === 0 
-        && <p>
-          You don't have any item in your cart
+        {cartItemsQuantity === 0
+          && <p>
+            You don't have any item in your cart
           </p>}
         {cartItemsQuantity > 0 && (
           <p>
@@ -57,7 +73,7 @@ function CartPage() {
           Clear basket
         </button>
 
-        <hr/>
+        <hr />
 
         <div className="productsWrapper">
           {stackedCartItems.map((item, index) => (
@@ -70,8 +86,22 @@ function CartPage() {
               price={item.price}
               imageSrc={item.image}
             />
+
           ))}
         </div>
+
+        {
+          stackedCartItems.length > 0
+          &&
+          <div>
+            <p className='price'>Total: ${
+              totalPrice
+            }</p>
+            <button onClick={validateCartHandler} className='orangeButton validateButton'>Validate your cart</button>
+          </div>
+
+        }
+
       </div>
 
     </>
