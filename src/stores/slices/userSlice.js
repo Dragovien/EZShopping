@@ -8,7 +8,7 @@ export const userSlice = createSlice({
             lastName: localStorage.getItem("lastName") ? JSON.parse(localStorage.getItem("lastName")) : '',
             email: localStorage.getItem("email") ? JSON.parse(localStorage.getItem("email")) : ''
         },
-        darkMode: false
+        darkMode: localStorage.getItem('darkMode') ? JSON.parse(localStorage.getItem("darkMode")) : false,
     },
     reducers: {
         updateUser: {
@@ -25,6 +25,7 @@ export const userSlice = createSlice({
             reducer: (state) => {
                 document.body.classList.toggle('dark-mode')
                 state.darkMode = !state.darkMode
+                localStorage.setItem('darkMode', state.darkMode)
             }
         }
     },

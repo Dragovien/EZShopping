@@ -6,6 +6,9 @@ const cartProductCard = ({ product }) => {
   const dispatch = useDispatch()
 
   const isDark = useSelector((state) => state.user.darkMode)
+
+  
+
   const userCart = useSelector((state) => state.shop.userCart)
 
   const productCardStyle = {

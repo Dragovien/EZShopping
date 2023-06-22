@@ -9,6 +9,7 @@ function Nav() {
   const cartItems = useSelector((state) => state.shop.userCart).length
 
   const isDark = useSelector((state) => state.user.darkMode)
+
   const currentUser = useSelector((state) => state.user.currentUser)
   const dispatch = useDispatch()
 

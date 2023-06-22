@@ -9,6 +9,10 @@ import { Provider } from 'react-redux'
 import store from './stores/globalStore'
 import { BrowserRouter as Router, Routes, Route  } from "react-router-dom";
 
+if(JSON.parse(localStorage.getItem('darkMode'))) {
+  document.body.classList.toggle('dark-mode')
+} 
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
