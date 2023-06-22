@@ -5,7 +5,7 @@ const importProductList = () => {
         try {
             let response = await fetch('https://fakestoreapi.com/products')
             let productList = await response.json()
-            console.log('called API')
+
             resolve(productList);
         } catch (e) {
             reject(error);
@@ -46,6 +46,7 @@ export const shopSlice = createSlice({
 
         clearCart: {
             reducer: (state, action) => {
+                localStorage.removeItem('userCart')
                 state.userCart = []
             }
         }
