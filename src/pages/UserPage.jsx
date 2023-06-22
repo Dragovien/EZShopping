@@ -56,7 +56,8 @@ function User() {
 
   return (
     <>
-      <h2>Hi {currentUser.firstName ? `${currentUser.firstName} ${currentUser.lastName}` : 'user'} !</h2>
+    <div className="userPage">
+    <h2>Hi {currentUser.firstName ? `${currentUser.firstName} ${currentUser.lastName}` : 'user'} !</h2>
       <h3>Customize your profile here</h3>
       <form style={formStyle} onSubmit={handleSubmit}>
         <div style={labelWrapper}>
@@ -78,6 +79,7 @@ function User() {
 
         <button className="orangeButton formButton" role={'submit'}>Save</button>
       </form>
+    </div>
     </>
   )
 }

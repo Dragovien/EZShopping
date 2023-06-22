@@ -21,7 +21,7 @@ const cartProductCard = ({ product }) => {
   }
 
   return (
-    <div className="productCard" style={productCardStyle}>
+    <div className="productCard cartCard" style={productCardStyle}>
       <div className='cardContent'>
         <img src={product.image} alt={product.title} />
         <div className="cardTextWrapper">
@@ -32,10 +32,13 @@ const cartProductCard = ({ product }) => {
         </div>
       </div>
       <div className="cardFooter">
+        <div>
         <b>Quantity : {product.quantity}</b>
-        <button className="orangeButton" onClick={() => removeItemFromCartHandler(product)}>Remove</button>
+
+        </div>
+      <button className="orangeButton" onClick={() => removeItemFromCartHandler(product)}>Remove</button>
       </div>
-      
+
     </div>
   );
 };
