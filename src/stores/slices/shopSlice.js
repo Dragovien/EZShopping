@@ -30,7 +30,8 @@ export const shopSlice = createSlice({
     name: 'shop',
     initialState: {
         productsList: await importProductList(),
-        userCart: []
+        userCart: [],
+
     },
     reducers: {
         addProductToCart: {
@@ -41,6 +42,17 @@ export const shopSlice = createSlice({
             prepare: (products) => {
                 return {
                     payload : products
+                }
+            }
+        },
+
+        updateCart: {
+            reducer: (state, action) => {
+                state.userCart = [...action.payload]
+            },
+            prepare: (filteredCart) => {
+                return {
+                    payload: filteredCart
                 }
             }
         },
@@ -70,5 +82,5 @@ export const shopSlice = createSlice({
 //     }
 // )
 
-export const { addProductToCart, clearCart } = shopSlice.actions
+export const { addProductToCart, updateCart, clearCart } = shopSlice.actions
 export default shopSlice.reducer

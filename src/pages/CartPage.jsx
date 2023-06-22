@@ -17,10 +17,9 @@ function CartPage() {
 
   useEffect(() => {
     return () => {
-      console.log('BEOFRE', cartItems)
+      console.log('BEFORE', cartItems)
       let stackedItems = []
       cartItems.map((item) => {
-        console.log(item)
         if (!stackedItems.some((stackedItem) => stackedItem.id === item.id)) {
           item = { ...item, quantity: 1 }
           stackedItems.push(item)

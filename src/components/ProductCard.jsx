@@ -24,6 +24,8 @@ const ProductCard = ({ product }) => {
     dispatch(addProductToCart(productsToAdd))
   }
 
+  
+
   return (
     <div className="productCard" style={productCardStyle}>
       <div className='cardContent'>
@@ -32,15 +34,20 @@ const ProductCard = ({ product }) => {
           <h2 className="cutText">{product.title}</h2>
           <div className="categoryChip">{product.category}</div>
           <div className="cutText">{product.description}</div>
-          <h3>{product.price}$</h3>
+          <h3>${product.price}</h3>
         </div>
       </div>
       <div className="cardFooter">
-        Quantity : <input value={quantity} type='number' onChange={quantityHandler}></input>
+        <div className='quantityWrapper'>
+        <p>Quantity :</p> <input value={quantity} type='number' onChange={quantityHandler}></input>
+        </div>
         <button className="orangeButton" onClick={addToCartHandler}>Add to cart</button>
       </div>
     </div>
   );
 };
+
+// A voir si alignement quantité et prix
+
 
 export default ProductCard;
