@@ -18,13 +18,13 @@ const ProductCard = ({ product }) => {
 
   const addToCartHandler = () => {
     let productsToAdd = []
-    for(let i = 0; i < quantity; i++) {
+    for (let i = 0; i < quantity; i++) {
       productsToAdd.push(product)
     }
     dispatch(addProductToCart(productsToAdd))
   }
 
-  
+
 
   return (
     <div className="productCard" style={productCardStyle}>
@@ -35,14 +35,15 @@ const ProductCard = ({ product }) => {
           <div className="categoryChip">{product.category}</div>
           <div className="cutText">{product.description}</div>
           <h3>${product.price}</h3>
+          <div className="cardFooter">
+            <div className='quantityWrapper'>
+            Quantity : <input type="number" min="1" value={quantity} onChange={quantityHandler}></input>
+            </div>
+            <button className="orangeButton" onClick={addToCartHandler}>Add to cart</button>
+          </div>
         </div>
       </div>
-      <div className="cardFooter">
-        <div className='quantityWrapper'>
-        <p>Quantity :</p> <input value={quantity} type='number' onChange={quantityHandler}></input>
-        </div>
-        <button className="orangeButton" onClick={addToCartHandler}>Add to cart</button>
-      </div>
+
     </div>
   );
 };

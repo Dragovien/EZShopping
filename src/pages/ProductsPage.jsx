@@ -4,7 +4,6 @@ import { useSelector } from "react-redux"
 function Products() {
   // const products = useSelector((state) => state.shop.productsList)
   const products = useSelector((state) => state.shop.productsList)
-  console.log(products)
 
   return (
     <div className="productsWrapper">
@@ -16,7 +15,8 @@ function Products() {
             category={product.category}
             description={product.description}
             price={product.price}
-            imageSrc={product.image} />
+            imageSrc={product.image} 
+            />
         )}
     </div>
   )
