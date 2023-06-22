@@ -35,32 +35,35 @@ function CartPage() {
 
   return (
     <>
-      <h2>Hi {savedName ? savedName : 'User'}</h2>
-      {cartItemsQuantity === 0 && <p>You don't have any item in your cart</p>}
-      {cartItemsQuantity > 0 && (
-        <p>
-          There {cartItemsQuantity > 1 ? 'are' : 'is'} {cartItemsQuantity}{' '}
-          {cartItemsQuantity > 1 ? 'items' : 'item'} in your basket
-        </p>
-      )}
+      <div className='cartPage'>
+        <h2>Hi {savedName ? savedName : 'User'} !</h2>
+        {cartItemsQuantity === 0 && <p>You don't have any item in your cart</p>}
+        {cartItemsQuantity > 0 && (
+          <p>
+            There {cartItemsQuantity > 1 ? 'are' : 'is'} {cartItemsQuantity}{' '}
+            {cartItemsQuantity > 1 ? 'items' : 'item'} in your basket
+          </p>
+        )}
 
-      <button className="orangeButton" onClick={clearCartHandler}>
-        Clear basket
-      </button>
+        <button className="orangeButton" onClick={clearCartHandler}>
+          Clear basket
+        </button>
 
-      <div className="productsWrapper">
-        {stackedCartItems.map((item, index) => (
-          <Cart
-            key={index}
-            product={item}
-            title={item.title}
-            category={item.category}
-            description={item.description}
-            price={item.price}
-            imageSrc={item.image}
-          />
-        ))}
+        <div className="productsWrapper">
+          {stackedCartItems.map((item, index) => (
+            <Cart
+              key={index}
+              product={item}
+              title={item.title}
+              category={item.category}
+              description={item.description}
+              price={item.price}
+              imageSrc={item.image}
+            />
+          ))}
+        </div>
       </div>
+
     </>
   );
 }
