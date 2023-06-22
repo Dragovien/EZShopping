@@ -23,9 +23,8 @@ export const shopSlice = createSlice({
     reducers: {
         addProductToCart: {
             reducer: (state, action) => {
-                // let productsToAdd = action.payload.map((product) => { return { ...product, quantity: null } })
-                state.userCart = [...state.userCart, ...action.payload]
                 localStorage.setItem('userCart', JSON.stringify([...state.userCart, ...action.payload]))
+                state.userCart = JSON.parse(localStorage.getItem('userCart'))
             },
             prepare: (products) => {
                 return {

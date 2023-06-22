@@ -12,19 +12,21 @@ function CartPage() {
     setStackedCartItems([]);
     dispatch(clearCart());
   };
-
   useEffect(() => {
-    let stackedItems = [...cartItems];
+    let stackedItems = [];
     cartItems.forEach((item) => {
       if (!stackedItems.some((stackedItem) => stackedItem.id === item.id)) {
-        item = { ...item, quantity: 1 };
-        stackedItems.push(item);
+        const newItem = { ...item, quantity: 1 }; // Create a new object with the 'quantity' property
+        stackedItems.push(newItem);
       } else {
-        stackedItems.find((duplicate) => item.id === duplicate.id).quantity++;
+        const duplicateItem = stackedItems.find((duplicate) => item.id === duplicate.id);
+        duplicateItem.quantity++; // Increment the 'quantity' property of the existing item
       }
     });
-    setStackedCartItems([...stackedItems]);
+    setStackedCartItems(stackedItems);
   }, [cartItems]);
+
+
 
   const dispatch = useDispatch();
 
