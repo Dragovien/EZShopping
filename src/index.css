@@ -121,7 +121,7 @@ button:focus-visible {
 
 .price {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -174,8 +174,8 @@ button:focus-visible {
 
 .validateButton {
   display: block;
-  font-size: 2rem;
-  margin: 2rem auto;
+  font-size: 1rem;
+  margin: 1rem auto; */
 }
 
 .cardFooter {
