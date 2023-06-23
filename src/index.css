@@ -201,6 +201,14 @@ button:focus-visible {
   color: black;
 }
 
+.formStyle {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+}
 
-
-
+.labelWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
