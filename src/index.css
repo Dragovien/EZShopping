@@ -173,7 +173,6 @@ button:focus-visible {
 }
 
 .validateButton {
-  display: block;
   font-size: 1rem;
   margin: 1rem auto;
 }
