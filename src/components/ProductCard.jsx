@@ -48,7 +48,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-// A voir si alignement quantité et prix
-
-
 export default ProductCard;

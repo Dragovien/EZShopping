@@ -46,10 +46,8 @@ function CartPage() {
 
   const dispatch = useDispatch();
 
-  let savedName = localStorage.getItem('firstName');
-  if (savedName) {
-    savedName = savedName.slice(1, -1);
-  }
+  let savedName = JSON.parse(localStorage.getItem('firstName'));
+ 
 
   return (
     <>
