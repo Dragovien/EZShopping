@@ -86,6 +86,20 @@ button:focus-visible {
   margin: 2rem;
 }
 
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  justify-content : space-between;
+  width : 400px
+}
+
+.labelWrapper {
+  display: flex;
+  column-gap: 0.5rem;
+  justify-content : space-between
+}
+
 
 .productsWrapper {
   display: flex;
