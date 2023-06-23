@@ -6,9 +6,9 @@ function Products() {
 
   return (
     <div className="productsWrapper">
-        {products.map((product) =>
-        // passage prop product au composant
+        {products.map((product, index) =>
           <ProductCard
+            key={index}
             product={product}
             />
         )}
