@@ -90,12 +90,14 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  justify-content : space-between;
+  width : 400px
 }
 
 .labelWrapper {
   display: flex;
   column-gap: 0.5rem;
-  align-items: center;
+  justify-content : space-between
 }
 
 
@@ -212,5 +214,7 @@ button:focus-visible {
   background-color: whitesmoke;
   color: black;
 }
+
+
 
 
