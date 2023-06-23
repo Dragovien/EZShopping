@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -208,6 +208,7 @@ button:focus-visible {
 }
 
 .labelWrapper {
+  margin: 5px;
   width: 100%;
   display: flex;
   justify-content: space-between;
