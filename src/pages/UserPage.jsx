@@ -14,12 +14,15 @@ function User() {
   const formStyle = {
     display: 'flex',
     flexDirection: 'column',
-    rowGap: '1rem'
+    rowGap: '1rem',
+    justifyContent : 'space-between',
+    width : '400px'
   }
 
   const labelWrapper = {
     display: 'flex',
     columnGap: '0.5rem',
+    justifyContent : 'space-between'
   }
 
   const formButton = {
