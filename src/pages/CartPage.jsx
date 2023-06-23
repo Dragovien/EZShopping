@@ -64,7 +64,7 @@ function CartPage() {
           </p>}
         {cartItemsQuantity > 0 && (
           <p>
-            There {cartItemsQuantity > 1 ? 'are' : 'is'} {cartItemsQuantity}{' '}
+            There {cartItemsQuantity > 1 ? 'are' : 'is'} <b>{cartItemsQuantity}</b>{' '}
             {cartItemsQuantity > 1 ? 'items' : 'item'} in your basket
           </p>
         )}

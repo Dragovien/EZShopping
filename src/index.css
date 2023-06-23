@@ -82,6 +82,11 @@ button:focus-visible {
   }
 }
 
+.cartPage, .userPage {
+  margin: 2rem;
+}
+
+
 .productsWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -112,6 +117,12 @@ button:focus-visible {
 .cardContent {
   display: flex;
   width: 100%;
+}
+
+.price {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 .productCard img {
@@ -190,12 +201,4 @@ button:focus-visible {
   color: black;
 }
 
-.cartPage, .userPage {
-  margin: 2rem;
-}
 
-.price {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-}
