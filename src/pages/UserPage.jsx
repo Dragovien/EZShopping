@@ -11,25 +11,6 @@ function User() {
   const [lastName, setLastName] = useState(currentUser.lastName)
   const [email, setEmail] = useState(currentUser.email)
 
-  const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    rowGap: '1rem'
-  }
-
-  const labelWrapper = {
-    display: 'flex',
-    columnGap: '0.5rem',
-  }
-
-  const formButton = {
-    width: "5rem",
-    padding: '0.25rem 0',
-    backgroundColor: 'orange',
-    borderRadius: '5px',
-    marginLeft: '1rem',
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateUser({
@@ -59,20 +40,20 @@ function User() {
     <div className="userPage">
     <h2>Hi {currentUser.firstName ? `${currentUser.firstName} ${currentUser.lastName}` : 'user'} !</h2>
       <h3>Customize your profile here</h3>
-      <form style={formStyle} onSubmit={handleSubmit}>
-        <div style={labelWrapper}>
+      <form className="formStyle" onSubmit={handleSubmit}>
+        <div className="labelWrapper">
           <label htmlFor="firstName">Your firstname :</label>
           <input type="text" id="firstName" value={firstName}
             onChange={handleFirstNameChange}
           />
         </div>
 
-        <div style={labelWrapper}>
+        <div className="labelWrapper">
           <label htmlFor="lastName">Your lastname :</label>
           <input type="text" id="lastName" value={lastName} onChange={handleLastNameChange} />
         </div>
 
-        <div style={labelWrapper}>
+        <div className="labelWrapper">
           <label htmlFor="email">Your email :</label>
           <input type="text" id="email" value={email} onChange={handleEmailChange} />
         </div>

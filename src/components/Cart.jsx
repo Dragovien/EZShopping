@@ -7,8 +7,6 @@ const cartProductCard = ({ product }) => {
 
   const isDark = useSelector((state) => state.user.darkMode)
 
-  
-
   const userCart = useSelector((state) => state.shop.userCart)
 
   const productCardStyle = {
@@ -19,13 +17,12 @@ const cartProductCard = ({ product }) => {
   const removeItemFromCartHandler = (product) => {
     // give cart without removed item
     const filteredCart = userCart.filter(item => item.id !== product.id)
-
     dispatch(updateCart(filteredCart))
   }
 
   return (
     <div className="productCard" style={productCardStyle}>
-      <div className='cardContent '>
+      <div className='cardContent'>
         <img src={product.image} alt={product.title} />
         <div className="cardTextWrapper">
           <h2 className="cutText">{product.title}</h2>
