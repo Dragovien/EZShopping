@@ -10,11 +10,6 @@ function Products() {
           <ProductCard
             key={product.id}
             product={product}
-            title={product.title}
-            category={product.category}
-            description={product.description}
-            price={product.price}
-            imageSrc={product.image} 
             />
         )}
     </div>
